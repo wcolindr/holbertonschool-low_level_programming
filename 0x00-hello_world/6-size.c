@@ -1,6 +1,13 @@
 #include <stdio.h>
 
-int main() {
+/**
+ * main - main function
+ *
+ * Return: 0
+ */
+
+int main(void)
+{
 
 	int intType;
 	float floatType;
@@ -14,5 +21,5 @@ int main() {
 	printf("Size of a long long int: %ld byte(s)\n", sizeof(longLongType));
 	printf("Size of a float: %ld byte(s)\n", sizeof(floatType));
 
-	return 0;
+	return (0);
 }
