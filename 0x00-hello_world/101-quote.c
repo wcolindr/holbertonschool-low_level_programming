@@ -4,7 +4,7 @@
 /**
 * main - main
 *
-*
+* Return: 1
 */
 
 int main(void)
