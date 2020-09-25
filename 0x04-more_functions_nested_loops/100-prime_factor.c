@@ -10,13 +10,23 @@ int main(void)
 {
 	long int num = 612852475143;
 	int div = 2;
-	long int ans;
 
-	while (num % div != 0)
+	while (num != div)
 	{
-		div++;
+		while (num % div != 0)
+		{
+			div++;
+		}
+		if (num == div)
+		{
+			break;
+		}
+		else
+		{
+			num = num / div;
+			div = 2;
+		}
 	}
-	ans = num / div;
-	printf("%ld\n", ans);
+	printf("%ld\n", num);
 	return (0);
 }
