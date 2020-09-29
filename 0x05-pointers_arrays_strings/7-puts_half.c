@@ -37,12 +37,12 @@ void puts_half(char *str)
 	}
 	count++;
 
-	if (*str % 2)
+	if (count % 2)
 		m = count / 2;
 	else
 		m = (count - 1) / 2;
 
-	for (i = m; i < count; i++)
+	for (i = m; i < _strlen(str); i++)
 	{
 		_putchar(str[i]);
 	}
