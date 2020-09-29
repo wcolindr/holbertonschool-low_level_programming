@@ -1,25 +1,6 @@
 #include "holberton.h"
 
 /**
- * _strlen - length of string
- *
- * @s: char is s
- *
- * Return: a
- */
-
-int _strlen(char *s)
-{
-	int a;
-
-	for (a = 0; s[a] != '\0'; a++)
-	{
-
-	}
-	return (a);
-}
-
-/**
  * puts_half - print half of string
  *
  * @str: char is str
@@ -27,25 +8,30 @@ int _strlen(char *s)
 
 void puts_half(char *str)
 {
-	int i = 0;
-	int m = 0;
-	int count = 0;
-	int e = 0;
+	int count;
+	int counting;
 
-	while (str[e] != '\0')
+	while (*str != '\0')
 	{
 		count++;
-		e++;
+		str++;
 	}
 
 	if (count % 2 == 0)
-		m = count / 2;
+		counting = count / 2;
 	else
-		m = (count - 1) / 2;
+		counting = (count - 1) / 2;
 
-	for (i = m; i < _strlen(str); i++)
+	while(counting != 0)
 	{
-		_putchar(str[i]);
+		counting--;
+		str--;
 	}
+
+	while (*str != '\0')
+		{
+			_putchar(*str);
+			str++;
+		}
 	_putchar('\n');
 }
