@@ -28,8 +28,21 @@ int _strlen(char *s)
 void puts_half(char *str)
 {
 	int i;
+	int m;
+	int count = 0;
 
-	for (i = 5; i < _strlen(str); i += 1)
+	while (str[count] != '\0')
+	{
+		count++;
+	}
+	count++;
+
+	if (*str % 2)
+		m = count / 2;
+	else
+		m = (count - 1) / 2;
+
+	for (i = m; i < _strlen(str); i++)
 	{
 		_putchar(str[i]);
 	}
