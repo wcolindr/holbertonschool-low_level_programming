@@ -29,13 +29,14 @@ void puts_half(char *str)
 {
 	int i;
 	int m;
-	int count = 0;
+	int count = 1;
+	int e;
 
-	while (str[count] != '\0')
+	while (str[e] != '\0')
 	{
 		count++;
+		e++;
 	}
-	count++;
 
 	if (count % 2)
 		m = count / 2;
