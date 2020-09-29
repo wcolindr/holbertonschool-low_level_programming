@@ -27,10 +27,10 @@ int _strlen(char *s)
 
 void puts_half(char *str)
 {
-	int i;
-	int m;
-	int count = 1;
-	int e;
+	int i = 0;
+	int m = 0;
+	int count = 0;
+	int e = 0;
 
 	while (str[e] != '\0')
 	{
@@ -38,7 +38,7 @@ void puts_half(char *str)
 		e++;
 	}
 
-	if (count % 2)
+	if (count % 2 == 0)
 		m = count / 2;
 	else
 		m = (count - 1) / 2;
