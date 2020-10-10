@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     }
 	mul = a * b;
 	
-	printkf("Production of %d, %d is: %d\n",a,b,mul);
+	printf("Production of %d, %d is: %d\n",a,b,mul);
 	
 	return 0;
 
