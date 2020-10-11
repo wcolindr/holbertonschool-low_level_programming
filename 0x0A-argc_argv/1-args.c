@@ -10,15 +10,15 @@
  * Return: 0
  */
 
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int counter;
 	int sum = 0;
 
-	for(counter = 0; counter < argc; counter++)
+	for (counter = 0; counter < argc; counter++)
 		sum = sum + *argv[counter];
 
-	printf("%d\n",counter - 1);
-	
+	printf("%d\n", counter - 1);
+
 	return (0);
 }
