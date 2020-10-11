@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * main - main function
@@ -12,15 +13,18 @@
 
 int main(int argc, char *argv[])
 {
-    int a,b,mul;
-	if(argc != 2)
+    int a, b, mul;
+	if(argc - 1 != 2)
 	{
 		printf("Error\n");
 		return 1;
     }
+	
+	a = atoi(argv[1]);
+	b = atoi(argv[2]);
 	mul = a * b;
 	
-	printf("Production of %d, %d is: %d\n",a,b,mul);
+	printf("%d", mul);
 	
 	return 0;
 
