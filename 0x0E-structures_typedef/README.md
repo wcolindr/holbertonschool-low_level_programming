@@ -1,0 +1,1 @@
+Learning how to use typepdef and structures in C
