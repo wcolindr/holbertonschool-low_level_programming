@@ -1,11 +1,4 @@
 	.file	"test.c"
-	.globl	s
-	.data
-	.align 16
-	.type	s, @object
-	.size	s, 17
-s:
-	.string	"Hello, Holberton"
 	.section	.rodata
 	.LC0:
 	.string	"%s"
@@ -20,11 +13,26 @@ main:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	movl	$s, %esi
+	subq	$32, %rsp
+	movq	%fs:40, %rax
+	movq	%rax, -8(%rbp)
+	xorl	%eax, %eax
+	movabsq	$5197202827057587528, %rax
+	movq	%rax, -32(%rbp)
+	movabsq	$7957707101262998639, %rax
+	movq	%rax, -24(%rbp)
+	movb	$0, -16(%rbp)
+	leaq	-32(%rbp), %rax
+	movq	%rax, %rsi
 	movl	$.LC0, %edi
 	movl	$0, %eax
 	call	printf
-	popq	%rbp
+	movq	-8(%rbp), %rdx
+	xorq	%fs:40, %rdx
+	je	.L2
+	call	__stack_chk_fail
+	.L2:
+	leave
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
