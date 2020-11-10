@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <sys/types.h>
 
 /**
  * read_textfile - read and print file to POSIX
@@ -17,23 +18,33 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *fp;
-	char store;
+	int fp;
+	int byte = 0, paste = 0;
+	char *store;
 
-	letters = 0;
+	fp = open(filename, O_RDONLY);
 
-	fp = fopen(filename, "r");
-
-	if (filename == NULL)
+	if (filename == NULL || letters <= 0)
 		return (0);
 
-	for (store = getc(fp); store != EOF; store = getc(fp))
-	{
-		write(1, &store, 1);
-		letters = letters + 1;
-	}
+	store = malloc(letters * sizeof(char));
 
-	fclose(fp);
+	if (store == NULL)
+		return (0);
 
-	return (letters);
+	byte = read(fp, store, letters);
+
+	if (byte == -1)
+		return (0);
+
+	paste = write(STDOUT_FILENO, store, byte);
+
+	if (paste == -1)
+		return (0);
+
+	close(fp);
+
+	free(store);
+
+	return (paste);
 }
