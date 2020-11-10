@@ -22,10 +22,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	int byte = 0, paste = 0;
 	char *store;
 
-	fp = open(filename, O_RDONLY);
-
 	if (filename == NULL || letters <= 0)
 		return (0);
+
+	fp = open(filename, O_RDONLY);
 
 	store = malloc(letters * sizeof(char));
 
